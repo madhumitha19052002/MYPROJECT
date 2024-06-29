@@ -1,0 +1,16 @@
+{% extends 'user.html'%}
+{% load static%}
+{% block content %}
+<div class="limiter" style="background-image:url({% static 'assets/images/3.jpg'%});width=100%;height:500px;">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+<center class="container container-login100">
+    <h2>Plants for {{soil}} soil</h2>
+    <table class="table" style="color:black">
+        <tr>
+            <th>plants</th>
+            <td>{% for d in i%}{{d}}    ,{%endfor%}</td>
+        </tr>
+    </table>
+</center>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'user.html'%}
+{% load static%}
+{% block content %}
+
+<center style="background-image:url({% static 'assets/images/1.jpg'%});width=100%;height:700%"><br><br><br><br><br><br>
+                <form method="POST" class="login100-form validate-form flex-sb flex-w">
+                    {% csrf_token %}
+                <span class="txt1 p-b-11" style="color:white">
+						Select plant
+					</span>
+
+						<select class="input100" name="username" >
+                            <option value="Apple">Apple</option>
+                            <option value="Blueberry">Blueberry</option>
+                            <option value="Cherry">Cherry</option>
+                            <option value="Grape">Grape</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Corn">Corn</option>
+                            <option value="Peach">Peach</option>
+                            <option value="Pepper">Pepper</option>
+                            <option value="Potato">Potato</option>
+                            <option value="Peach">Peach</option>
+                            <option value="Raspberry">Raspberry</option>
+                            <option value="Soybean">Soybean</option>
+                            <option value="Squash">Squash</option>
+                            <option value="Strawberry">Strawberry</option>
+                            <option value="Tomato">Tomato</option>
+                        </select>
+						<span class="focus-input100"></span>
+                        <input type="file" name="image" id="imageUpload" accept=".png, .jpg, .jpeg" style="display:table">
+                    <div class="container-login100-form-btn">
+						<input type="submit" class="login100-form-btn" value="Submit">
+
+					</div>
+                </form>
+    </center>
+<script>
+function display(input) {
+
+};
+</script>
+{% endblock %}

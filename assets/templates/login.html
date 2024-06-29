@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Alazea - Gardening &amp; Landscaping HTML Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'csss/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'csss/main.css' %}">
+    <script>
+//user id validation starts
+function userid_validation(){
+'use strict';
+var userid_name = document.getElementById("userid");
+var userid_value = document.getElementById("userid").value;
+var userid_length = userid_value.length;
+if(userid_length<7 || userid_length>12)
+{
+document.getElementById('uid_err').innerHTML = 'Value must not be less than 7 characters and greater than 12 characters';
+userid_name.focus();
+document.getElementById('uid_err').style.color = "#FF0000";
+}
+else
+{
+document.getElementById('uid_err').innerHTML = 'Valid user id';
+document.getElementById('uid_err').style.color = "#00AF33";
+}
+}
+//user id validation ends
+//password validation starts
+function passwd_validation(){
+'use strict';
+var passid_name = document.getElementById("passid");
+var passid_value = document.getElementById("passid").value;
+var passid_length = passid_value.length;
+if(passid_length<6)
+{
+document.getElementById('passwd_err').innerHTML = 'Password must be at least 6 chracters long';
+passid_name.focus();
+document.getElementById('passwd_err').style.color = "#FF0000";
+}
+else
+{
+document.getElementById('passwd_err').innerHTML = 'Valid password';
+document.getElementById('passwd_err').style.color = "#00AF33";
+}
+}
+//password validation ends
+//user name validation starts
+function username_validation(){
+'use strict';
+var username_name = document.getElementById("username");
+var username_value = document.getElementById("username").value;
+var username_length = username_value.length;
+var letters = /^[0-9a-zA-Z]+$/;
+if(username_length < 4 || !username_value.match(letters))
+{
+document.getElementById('name_err').innerHTML = 'Username must be 4 chracters long and alphanuric chracters only.';
+username_name.focus();
+document.getElementById('name_err').style.color = "#FF0000";
+}
+else
+{
+document.getElementById('name_err').innerHTML = 'Valid username';
+document.getElementById('name_err').style.color = "#00AF33";
+}
+}
+//user name validation ends
+//country validation starts
+function country_validation(){
+'use strict';
+var country_name = document.getElementById("country");
+var country_value = document.getElementById("country").value;
+if(country_value === "Default" || country_value === "--")
+{
+document.getElementById('country_err').innerHTML = 'You must select a country';
+country_name.focus();
+document.getElementById('country_err').style.color = "#FF0000";
+}
+else
+{
+document.getElementById('country_err').innerHTML = 'Country selected.';
+document.getElementById('country_err').style.color = "#00AF33";
+}
+}
+//country validation ends
+//zip validation starts
+function zip_validation(){
+'use strict';
+var numbers = /^[0-9]+$/;
+var zip_name = document.getElementById("zip");
+var zip_value = document.getElementById("zip").value;
+var zip_length = zip_value.length;
+if(!zip_value.match(numbers) || zip_length !== 5)
+{
+document.getElementById('zip_err').innerHTML = 'You must enter a ZIP code, which must be numeric and must be at least 5 chracters long.';
+zip_name.focus();
+document.getElementById('zip_err').style.color = "#FF0000";
+}
+else
+{
+document.getElementById('zip_err').innerHTML = 'ZIP code entered';
+document.getElementById('zip_err').style.color = "#00AF33";
+}
+}
+//zip validation ends
+//email validation starts
+function email_validation(){
+'use strict';
+var mailformat = /^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})+$/;
+var email_name = document.getElementById("email");
+var email_value = document.getElementById("email").value;
+var email_length = email_value.length;
+if(!email_value.match(mailformat) || email_length === 0)
+{
+document.getElementById('email_err').innerHTML = 'This is not a valid email format.';
+email_name.focus();
+document.getElementById('email_err').style.color = "#FF0000";
+}
+else
+{
+document.getElementById('email_err').innerHTML = 'Valid email format';
+document.getElementById('email_err').style.color = "#00AF33";
+}
+}
+//email validation ends
+//gender validation starts
+function gender_validation(){
+'use strict';
+if ( (document.getElementById("msex").checked === false) && (document.getElementById("fsex").checked === false)){
+document.getElementById('gender_err').innerHTML = 'Please slect a geneder.';
+document.getElementById('gender_err').style.color = "#FF0000";
+document.getElementById("msex").checked = true;
+}
+else
+{
+document.getElementById('gender_err').innerHTML = 'Gender selected';
+document.getElementById('gender_err').style.color = "#00AF33";
+}
+}
+//gender validation ends
+function passwd_checking(){
+'use strict';
+if ( document.getElementById("passid1") === document.getElementById("passid")){
+document.getElementById("passwd_err1").innerHTML='passwords are mismatched';
+
+document.getElementById('passwd_err1').style.color = "#FF0000";
+document.getElementById("msex").checked = true;
+
+}
+else
+{
+document.getElementById('passwd_err1').innerHTML = 'Valid password format';
+document.getElementById('passwd_err1').style.color = "#00AF33";
+}
+}
+</script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="{% static 'img/core-img/leaf.png'%}" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- ***** Top Header Area ***** -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="plant@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: plant@gmail.com</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+91 9845671320"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +91 9845671320</span></a>
+                            </div>
+
+                            <!-- Top Header Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/l1.png'%}" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/about.html">About</a></li>
+                                    <li><a href="/contact.html">Contact</a></li>
+                                </ul>
+
+                                <!-- Search Icon -->
+                                <div id="searchIcon">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+
+                    <!-- Search Form -->
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <!-- Close Icon -->
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+    {% block content %}
+<div class="limiter" >
+		<div class="container-login100" style="background-image: url({% static 'img/bg-img/2.jpg'%});">
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+				<form method="POST" class="login100-form validate-form flex-sb flex-w">
+                    {% csrf_token %}
+					<span class="login100-form-title p-b-32">
+						Account Login
+					</span>
+
+					<span class="txt1 p-b-11">
+						Username
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" id="username" onBlur="username_validation();"><span id="name_err"></span>
+						<span class="focus-input100"></span>
+					</div>
+
+					<span class="txt1 p-b-11">
+						Password
+					</span>
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass" id="passid" onBlur="passwd_validation();"/><span id="passwd_err"></span>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-48">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+                        {% if name != "admin" %}
+                            <div>
+                                <a href="/{{name}}_register.html" class="txt3">
+                                    Sign Up?
+                                </a>
+                            </div>
+                        {% endif %}
+					</div>
+
+					<div class="container-login100-form-btn">
+						<input type="submit" class="login100-form-btn" value="Login">
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+    {% endblock %}
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+        <script src="{% static 'js/jquery/jquery-2.2.4.min.js'%}"></script>
+    <!-- Popper js -->
+        <script src="{% static 'js/bootstrap/popper.min.js'%}"></script>
+    <!-- Bootstrap js -->
+        <script src="{% static 'js/bootstrap/bootstrap.min.js'%}"></script>
+    <!-- All Plugins js -->
+        <script src="{% static 'js/plugins/plugins.js'%}"></script>
+    <!-- Active js -->
+        <script src="{% static 'js/active.js'%}"></script>
+
+		<script src="{% static 'jss/main.js'%}"></script>
+
+</body>
+</html>
+

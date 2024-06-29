@@ -1,0 +1,8 @@
+django
+mysqlclient
+tensorflow
+bs4
+pillow
+numpy
+pandas
+sklearn

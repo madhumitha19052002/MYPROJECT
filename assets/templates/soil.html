@@ -1,0 +1,28 @@
+{% extends 'user.html'%}
+{% load static%}
+{% block content %}
+<div class="limiter" style="background-image:url({% static 'assets/images/asdff.jpg'%});height:1000px;">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+<center class="container container-login100">
+
+
+    <h2 style="color:black">Plant recommendation </h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="form-group">
+  <label for="sel1" style="color:white">Select list:</label>
+  <select class="form-control" name="soil" id="sel1" style="width:50%">
+        <option value="Alluvial">Alluvial</option>
+        <option value="Black">Black</option>
+        <option value="red and yellow">red and yellow</option>
+        <option value="Laterite">Laterite</option>
+        <option value="Arid">Arid</option>
+        <option value="forest and mountain">forest and mountain</option>
+        <option selected disabled>Select soil type</option>
+    </select>
+    <br>
+    <input type="submit"class="btn btn-secondary" value="submit">
+</form>
+
+</center>
+    </div>{% endblock %}

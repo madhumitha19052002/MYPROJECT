@@ -1,0 +1,43 @@
+{% extends 'client.html'%}
+{% load static%}
+{% block content %}
+ <section class="hero-area">
+        <div class="hero-post-slides owl-carousel">
+             <div class="single-hero-post bg-overlay"><br><br><br><br>
+
+                  <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Username</th>
+                          <th>Plant name</th>
+                          <th>Images</th>
+                          <th>actions</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tbody>
+                        {%for i in die%}
+                            <tr>
+                                <td>{{i.pk}}</td>
+                                <td>{{i.user}}</td>
+                                <td>{{i.plant_name}}</td>
+                                <td><img src="{{i.image.url}}" alt="{{i.image}}">{{i.plant_disease}}</td>
+                                {% if i.client is False %}
+                                    <td><a href="/check/{{i.pk}}">check</a></td>
+                                {% else %}
+                                    <td>{{i.fertilizer}}</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+             </div>
+        </div>
+ </section>
+{% endblock %}

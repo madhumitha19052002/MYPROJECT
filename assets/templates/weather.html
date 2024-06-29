@@ -1,0 +1,29 @@
+{% extends 'user.html'%}
+{% load static%}
+{% block content %}
+<div class="limiter" style="background-image:url({% static 'assets/images/1.jpg'%});width=100%;height:500px;">
+    <br><br><br><br><br><br><br><br><br>
+<center class="container container-login100" >
+    {% if i %}
+    <h2>your weather report</h2>
+    <table style="color:black;background-image: linear-gradient( rgba(0,128,0,1), rgba(255,0,0,0));padding:20 20 20 20;">
+        <tr>
+            <th>Location</th><td></td>
+            <td>{{i}}</td>
+        </tr>
+        <tr><th>Time</th><td></td><td>{{j}}</td></tr>
+        <tr><th>Climate</th><td></td><td>{{k}}</td></tr>
+        <tr><th>Temperature</th><td></td><td>{{l}}°C</td></tr>
+    </table>
+    {%else%}
+    <h2>Check Weather Report Here</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="Text" name="city" placeholder="Enter your city name "><br>
+    <input type="submit"class="btn btn-secondary" value="submit">
+</form>
+{% endif %}
+
+</center>
+</div>
+{% endblock %}

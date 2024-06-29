@@ -1,0 +1,40 @@
+{% extends 'user.html'%}
+{% load static %}
+{% block content %}
+<center style="background-image:url({% static 'assets/images/1.jpg'%});width=100%;"><br><br><br><br><br><br>
+    <h1>Disease Reports</h1>
+    <table class="table table-hover table-striped" style="width:80%;background:white;">
+    <thead class="thead-dark">
+      <tr>
+           <th>No</th>
+           <th>Username</th>
+           <th>Plant name</th>
+           <th>Images</th>
+           <th>Disease</th>
+          <th>Fertilizers</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for i in dis%}
+                            <tr>
+                                <td>{{i.pk}}</td>
+                                <td>{{i.user}}</td>
+                                <td>{{i.plant_name}}</td>
+                                <td><img src="{{i.image.url}}" alt="{{i.image}}"></td>
+                                {% if i.admin is False %}
+                                    <td>Waiting</td>
+                                {% else %}
+                                    <td>{{i.plant_disease}}</td>
+                                {% endif %}
+                                {% if i.client is False %}
+                                    <td>Waiting</td>
+                                {% else %}
+                                    <td>{{i.fertilizer}}</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+    </tbody>
+  </table>
+    <br><br>
+</center>
+{% endblock %}
